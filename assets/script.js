@@ -13,6 +13,10 @@ $.ajax({
     console.log(response);
     console.log(response.name);
     var name = response.name;
+    var timeStamp = response.dt * 1000;
+    var date = new Date(timeStamp);
+    console.log(date);
+    console.log(date.toLocaleString());
     console.log(response.main.temp);
     console.log(response.main.humidity);
     console.log(response.wind.speed);
