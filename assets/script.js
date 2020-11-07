@@ -22,9 +22,12 @@ $.ajax({
     var name = response.name;
     var date = convertDate(response.dt);
     console.log(date);
-    console.log(response.main.temp);
-    console.log(response.main.humidity);
-    console.log(response.wind.speed);
+    var temp = response.main.temp;
+    console.log(temp);
+    var humidity = response.main.humidity;
+    console.log(humidity);
+    var wind = response.wind.speed;
+    console.log(wind);
     var lat = response.coord.lat;
     var lon = response.coord.lon;
     var oneCallURL = "http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey2;
@@ -35,7 +38,7 @@ $.ajax({
         console.log(response);
         console.log("this one");
         var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png";
-        console.log(convertDate(response.daily[0].dt));
+        var uvIndex = response.current.uvi;
     })
 });
 
