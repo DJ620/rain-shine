@@ -12,6 +12,7 @@ $.ajax({
 }).then(function(response) {
     console.log(response);
     console.log(response.name);
+    var name = response.name;
     console.log(response.main.temp);
     console.log(response.main.humidity);
     console.log(response.wind.speed);
