@@ -4,7 +4,14 @@ var apiKey3 = "c8365256edd594643ad843e3f1e0c7ad";
 
 city = "seattle";
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey3;
-var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + city + "&appid=" + apiKey1;
+
+function convertDate(timeStamp) {
+    return new Date(timeStamp * 1000).toLocaleString("en-US", {
+        month: "numeric",
+        day: "numeric",
+        year: "numeric"
+    });
+};
 
 $.ajax({
     url: queryURL,
@@ -13,39 +20,22 @@ $.ajax({
     console.log(response);
     console.log(response.name);
     var name = response.name;
-    var timeStamp = response.dt * 1000;
-    var date = new Date(timeStamp);
+    var date = convertDate(response.dt);
     console.log(date);
-    console.log(date.toLocaleString());
     console.log(response.main.temp);
     console.log(response.main.humidity);
     console.log(response.wind.speed);
     var lat = response.coord.lat;
     var lon = response.coord.lon;
-    var uvURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey2;
-    $.ajax({
-        url: uvURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-        console.log(response.value);
-    });
     var oneCallURL = "http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey2;
     $.ajax({
         url: oneCallURL,
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        console.log("this one");
+        var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png";
+        console.log(convertDate(response.daily[0].dt));
     })
 });
-
-$.ajax({
-    url: forecastURL,
-    method: "GET"
-}).then(function(response) {
-    console.log(response);
-});
-
-// instructions on website how to set icons
-var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
 
