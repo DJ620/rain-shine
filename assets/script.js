@@ -3,6 +3,16 @@ var apiKey2 = "41490cc9c30ac5171880367eb41b32e3";
 var apiKey3 = "c8365256edd594643ad843e3f1e0c7ad";
 var cityButtons = [];
 
+var checkStorage = JSON.parse(localStorage.getItem("cities"));
+if (checkStorage) {
+    checkStorage.forEach(function(city) {
+        cityButtons.push(city);
+    })
+    localStorage.setItem("cities", JSON.stringify(cityButtons));
+
+    getWeather(cityButtons[cityButtons.length - 1]);
+}
+
 function convertDate(timeStamp) {
     return new Date(timeStamp * 1000).toLocaleString("en-US", {
         month: "numeric",
@@ -69,12 +79,15 @@ function getWeather(city) {
                 $("#forecast-cards").append(col);
             }
         })
-        cityButtons.push(name);
+        if (!cityButtons.includes(name)) {
+            cityButtons.push(name);
+        };
         cityButtons.forEach(function(city){
             var newCityBtn = $("<li class='list-group-item city-button'>");
             newCityBtn.text(city);
             $("#button-list").prepend(newCityBtn);
         })
+        localStorage.setItem("cities", JSON.stringify(cityButtons));
     });
 };
 $(".btn").on("click", function(event) {
@@ -88,4 +101,9 @@ $(".btn").on("click", function(event) {
         $("#button-list").empty();
         getWeather(city);
     }
+})
+
+$(".city-button").on("click", function() {
+    getWeather($(this).text());
+    console.log("working");
 })
