@@ -43,3 +43,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 15px -5px black;
 }
+
+.fa-backspace:hover {
+    background-color: red;
+}

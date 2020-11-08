@@ -76,10 +76,15 @@ function getWeather(city) {
             cityButtons.push(name);
         };
         $("#button-list").empty();
+        var i = 0;
         cityButtons.forEach(function(city){
-            var newCityBtn = $("<li class='list-group-item city-button'>");
+            var newCityBtn = $("<li class='list-group-item city-button' id='button" + i + "'>");
             newCityBtn.text(city);
+            var deleteBtn = $("<button class='fa fa-backspace btn float-right' value='button" + i + "'>");
+            console.log(deleteBtn.val());
+            newCityBtn.append(deleteBtn);
             $("#button-list").prepend(newCityBtn);
+            i++;
         })
         localStorage.setItem("cities", JSON.stringify(cityButtons));
     });
