@@ -38,3 +38,7 @@
 .uv-extreme {
     background-color: purple;
 }
+
+.forecast {
+    border-radius: 10px;
+}

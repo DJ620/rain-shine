@@ -57,8 +57,8 @@ function getWeather(city) {
             $("#forecast-cards").empty();
             for (var i = 1; i < 6; i++) {
                 var col = $("<div class='col'>");
-                var card = $("<div class='card'>");
-                var body = $("<div class='card-body bg-primary'>");
+                var card = $("<div class='card forecast'>");
+                var body = $("<div class='card-body bg-primary forecast'>");
                 var cardDate = $("<h3 class='card-title text-white'>");
                 cardDate.text(convertDate(response.daily[i].dt));
                 var cardIcon = $("<img src='http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png' alt='weather icon'>");
