@@ -82,6 +82,7 @@ function getWeather(city) {
         if (!cityButtons.includes(name)) {
             cityButtons.push(name);
         };
+        $("#button-list").empty();
         cityButtons.forEach(function(city){
             var newCityBtn = $("<li class='list-group-item city-button'>");
             newCityBtn.text(city);
@@ -98,12 +99,10 @@ $(".btn").on("click", function(event) {
         $("#uv").removeClass();
         $("#forecast-cards").empty();
         $("#city-input").val("");
-        $("#button-list").empty();
         getWeather(city);
     }
 })
 
-$(".city-button").on("click", function() {
+$("#button-list").on("click", 'li.city-button', function() {
     getWeather($(this).text());
-    console.log("working");
 })
