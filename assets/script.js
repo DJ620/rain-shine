@@ -1,6 +1,7 @@
 var apiKey1 = "d3d6560ad567216dabcc0351c22d0fad";
 var apiKey2 = "41490cc9c30ac5171880367eb41b32e3";
 var apiKey3 = "c8365256edd594643ad843e3f1e0c7ad";
+var cityButtons = [];
 
 function convertDate(timeStamp) {
     return new Date(timeStamp * 1000).toLocaleString("en-US", {
@@ -49,7 +50,6 @@ function getWeather(city) {
                 $("#uv").addClass("uv-extreme");
             }
             for (var i = 1; i < 6; i++) {
-                var forecastDate = convertDate(response.daily[i].dt);
                 var forecastIconURL = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png";
                 var forecastTemp = response.daily[i].temp.day;
                 var forecastHumidity = response.daily[i].humidity;
@@ -57,7 +57,7 @@ function getWeather(city) {
                 var card = $("<div class='card'>");
                 var body = $("<div class='card-body bg-primary'>");
                 var cardDate = $("<h3 class='card-title text-white'>");
-                cardDate.text(forecastDate);
+                cardDate.text(convertDate(response.daily[i].dt));
                 var cardIcon = $("<img src=" + forecastIconURL + " alt='weather icon'>");
                 var cardTemp = $("<p class='card-text text-white'>");
                 cardTemp.text("Temp: " + forecastTemp + " °F");
@@ -69,23 +69,23 @@ function getWeather(city) {
                 $("#forecast-cards").append(col);
             }
         })
-        var newCityBtn = $("<li class='list-group-item'>");
-        newCityBtn.text(name);
-        $("#button-list").append(newCityBtn);
+        cityButtons.push(name);
+        cityButtons.forEach(function(city){
+            var newCityBtn = $("<li class='list-group-item city-button'>");
+            newCityBtn.text(city);
+            $("#button-list").prepend(newCityBtn);
+        })
     });
 };
 $(".btn").on("click", function(event) {
     event.preventDefault();
     if ($("#city-input").val()) {
-        var city = $("#city-input").val().split(" ");
-        city = city.join("+");
+        var city = $("#city-input").val().split(" ").join("+");
         console.log(city);
         $("#uv").removeClass();
         $("#forecast-cards").empty();
-        getWeather(city);
-        /*var newCityBtn = $("<li class='list-group-item'>");
-        newCityBtn.text(city);
-        $("#button-list").append(newCityBtn);*/
         $("#city-input").val("");
+        $("#button-list").empty();
+        getWeather(city);
     }
 })
