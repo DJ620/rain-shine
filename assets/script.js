@@ -48,6 +48,7 @@ function getWeather(city) {
             $("#city-name").append("<img src=" + iconURL + " alt='weather icon'>");
             var uvIndex = response.current.uvi;
             $("#uv").text(uvIndex);
+            $("#uv").removeClass();
             if (uvIndex < 3) {
                 $("#uv").addClass("uv-low");
             } else if (uvIndex > 2 && uvIndex < 6) {
@@ -59,6 +60,7 @@ function getWeather(city) {
             } else {
                 $("#uv").addClass("uv-extreme");
             }
+            $("#forecast-cards").empty();
             for (var i = 1; i < 6; i++) {
                 var forecastIconURL = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png";
                 var forecastTemp = response.daily[i].temp.day;
@@ -97,7 +99,6 @@ $(".btn").on("click", function(event) {
         var city = $("#city-input").val().split(" ").join("+");
         console.log(city);
         $("#uv").removeClass();
-        $("#forecast-cards").empty();
         $("#city-input").val("");
         getWeather(city);
     }
