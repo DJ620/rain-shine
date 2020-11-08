@@ -38,7 +38,7 @@ function getWeather(city) {
         $("#current-wind").text(wind + " MPH");
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-        var oneCallURL = "http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey2;
+        var oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey2;
         $.ajax({
             url: oneCallURL,
             method: "GET"
