@@ -6,11 +6,10 @@ var checkStorage = JSON.parse(localStorage.getItem("cities"));
 if (checkStorage) {
     checkStorage.forEach(function(city) {
         cityButtons.push(city);
-    })
+    });
     localStorage.setItem("cities", JSON.stringify(cityButtons));
-
     getWeather(cityButtons[cityButtons.length - 1]);
-}
+};
 
 function renderButtons() {
     $("#button-list").empty();
@@ -20,9 +19,9 @@ function renderButtons() {
         var deleteBtn = $("<button class='fa fa-backspace btn float-right' value='button" + i + "'>");
         newCityBtn.append(deleteBtn);
         $("#button-list").prepend(newCityBtn);
-        }
+        };
     localStorage.setItem("cities", JSON.stringify(cityButtons));
-}
+};
 
 function convertDate(timeStamp) {
     return new Date(timeStamp * 1000).toLocaleString("en-US", {
@@ -80,8 +79,8 @@ function getWeather(city) {
                 card.append(body);
                 col.append(card);
                 $("#forecast-cards").append(col);
-            }
-        })
+            };
+        });
         if (!cityButtons.includes(name)) {
             cityButtons.push(name);
         };
@@ -94,17 +93,17 @@ $(".fa-search").on("click", function(event) {
         var city = $("#city-input").val().split(" ").join("+");
         $("#city-input").val("");
         getWeather(city);
-    }
-})
+    };
+});
 
 $("#button-list").on("click", 'li.city-button', function() {
     getWeather($(this).text());
-})
+});
 
 $("#button-list").on("click", 'button.fa-backspace', function(event) {
     event.stopPropagation();
     var deletedCity = $("#" + $(this).val()).text();
     cityButtons.splice(cityButtons.indexOf(deletedCity), 1);
     renderButtons();
-})
+});
 
