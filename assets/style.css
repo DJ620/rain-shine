@@ -1,18 +1,18 @@
 body {
     font-family: 'ABeeZee', sans-serif;
     font-size: 20px;
-    background-color: rgb(147, 195, 225);
+    /*background-color: rgb(147, 195, 225);*/
+    background-image: url("https://m.media-amazon.com/images/I/51lVOpJU2FL.jpg");
 }
 
 header {
     font-family: 'Pacifico', cursive;
-    color: gold;
-    background: linear-gradient(0deg, rgb(147, 195, 225), rgb(100, 178, 227), rgb(96, 96, 240), rgba(200, 203, 163, 0.653), rgb(77, 77, 240), blue);
+    /*background: linear-gradient(0deg, rgb(147, 195, 225), rgb(100, 178, 227), rgb(96, 96, 240), rgba(200, 203, 163, 0.653), rgb(77, 77, 240), blue);*/
 }
 
 #shine {
     color: gold;
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-EtTsnnO7zHHHrm7ED1gB563EwMZOVHQBMA&usqp=CAU') no-repeat;
+    background: url('https://img.freepik.com/free-vector/sun-rays-design_24911-42773.jpg?size=338&ext=jpg') no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -25,7 +25,7 @@ header {
 }
 
 #search-container {
-    background-color: rgb(120, 187, 228);
+    background-color: rgba(120, 187, 228, 0.687);
     width: 100%;
 }
 
@@ -37,6 +37,7 @@ header {
 #weather-container {
     width: 100%;
     border: 5px inset rgba(100, 148, 237, 0.632);
+    background-color: rgba(120, 187, 228, 0.687);
 }
 
 #uv {
@@ -67,7 +68,7 @@ header {
 }
 
 #current-icon {
-    transform: scale(1.5);
+    transform: scale(2);
 }
 
 .forecast {
