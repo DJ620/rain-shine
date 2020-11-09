@@ -39,7 +39,8 @@ function getWeather(city) {
         }).then(function(response) {
             console.log(response);
             var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png";
-            $("#city-name").append("<img src=" + iconURL + " alt='weather icon'>");
+            $("#current-icon").attr("src", iconURL);
+            $("#description").text(response.current.weather[0].description);
             var uvIndex = response.current.uvi;
             $("#uv").text(uvIndex);
             $("#uv").removeClass();
