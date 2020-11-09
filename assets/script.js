@@ -59,13 +59,13 @@ function getWeather(city) {
             for (var i = 1; i < 6; i++) {
                 var col = $("<div class='col'>");
                 var card = $("<div class='card forecast'>");
-                var body = $("<div class='card-body bg-primary forecast'>");
-                var cardDate = $("<h4 class='card-title text-white'>");
+                var body = $("<div class='card-body forecast'>");
+                var cardDate = $("<h4 class='card-title'>");
                 cardDate.text(convertDate(response.daily[i].dt));
                 var cardIcon = $("<img src='http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png' alt='weather icon'>");
-                var cardTemp = $("<p class='card-text text-white'>");
+                var cardTemp = $("<p class='card-text'>");
                 cardTemp.text("Temp: " + response.daily[i].temp.day + " °F");
-                var cardHumidity = $("<p class='card-text text-white'>");
+                var cardHumidity = $("<p class='card-text'>");
                 cardHumidity.text("Humidity: " + response.daily[i].humidity + "%");
                 body.append(cardDate, cardIcon, cardTemp, cardHumidity);
                 card.append(body);
