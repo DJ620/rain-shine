@@ -35,7 +35,7 @@ header {
 }
 
 #weather-container {
-    width: 100%;
+    width: 98%;
     border: 5px inset rgba(100, 148, 237, 0.632);
     background-color: rgba(120, 187, 228, 0.687);
 }

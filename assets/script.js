@@ -1,16 +1,21 @@
+// Global variables===============================================================================================================================================
 var apiKey1 = "41490cc9c30ac5171880367eb41b32e3";
 var apiKey2 = "c8365256edd594643ad843e3f1e0c7ad";
 var cityButtons = [];
 
+// This checks to see if there is data in local storage, and if there is, it pushes it into the cityButtons array
 var checkStorage = JSON.parse(localStorage.getItem("cities"));
 if (checkStorage) {
     checkStorage.forEach(function(city) {
         cityButtons.push(city);
     });
     localStorage.setItem("cities", JSON.stringify(cityButtons));
+
+    // This runs the getWeather function with the last element in the cityButtons array
     getWeather(cityButtons[cityButtons.length - 1]);
 };
 
+// Functions======================================================================================================================================================
 function renderButtons() {
     $("#button-list").empty();
     for (var i = 0; i < cityButtons.length; i++) {
