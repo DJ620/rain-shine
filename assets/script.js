@@ -1,6 +1,5 @@
-var apiKey1 = "d3d6560ad567216dabcc0351c22d0fad";
-var apiKey2 = "41490cc9c30ac5171880367eb41b32e3";
-var apiKey3 = "c8365256edd594643ad843e3f1e0c7ad";
+var apiKey1 = "41490cc9c30ac5171880367eb41b32e3";
+var apiKey2 = "c8365256edd594643ad843e3f1e0c7ad";
 var cityButtons = [];
 
 var checkStorage = JSON.parse(localStorage.getItem("cities"));
@@ -13,6 +12,18 @@ if (checkStorage) {
     getWeather(cityButtons[cityButtons.length - 1]);
 }
 
+function renderButtons() {
+    $("#button-list").empty();
+    for (var i = 0; i < cityButtons.length; i++) {
+        var newCityBtn = $("<li class='list-group-item city-button' id='button" + i + "'>");
+        newCityBtn.text(cityButtons[i]);
+        var deleteBtn = $("<button class='fa fa-backspace btn float-right' value='button" + i + "'>");
+        newCityBtn.append(deleteBtn);
+        $("#button-list").prepend(newCityBtn);
+        }
+    localStorage.setItem("cities", JSON.stringify(cityButtons));
+}
+
 function convertDate(timeStamp) {
     return new Date(timeStamp * 1000).toLocaleString("en-US", {
         month: "numeric",
@@ -21,8 +32,7 @@ function convertDate(timeStamp) {
     });
 };
 function getWeather(city) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey3;
-    console.log(queryURL);
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey2;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -32,12 +42,11 @@ function getWeather(city) {
         $("#current-temp").text(response.main.temp + " °F");
         $("#current-humidity").text(response.main.humidity + "%");
         $("#current-wind").text(response.wind.speed + " MPH");
-        var oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&appid=" + apiKey2;
+        var oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&appid=" + apiKey1;
         $.ajax({
             url: oneCallURL,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
             var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png";
             $("#current-icon").attr("src", iconURL);
             $("#description").text(response.current.weather[0].description);
@@ -99,14 +108,3 @@ $("#button-list").on("click", 'button.fa-backspace', function(event) {
     renderButtons();
 })
 
-function renderButtons() {
-    $("#button-list").empty();
-    for (var i = 0; i < cityButtons.length; i++) {
-        var newCityBtn = $("<li class='list-group-item city-button' id='button" + i + "'>");
-        newCityBtn.text(cityButtons[i]);
-        var deleteBtn = $("<button class='fa fa-backspace btn float-right' value='button" + i + "'>");
-        newCityBtn.append(deleteBtn);
-        $("#button-list").prepend(newCityBtn);
-        }
-    localStorage.setItem("cities", JSON.stringify(cityButtons));
-}
