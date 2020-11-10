@@ -24,9 +24,16 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
+@media (max-width: 450px) {
+    header h1{
+        font-size: 40px;
+    }
+}
+
 #search-container {
     background-color: rgba(120, 187, 228, 0.687);
     width: 100%;
+    border: 5px inset rgba(100, 148, 237, 0.632);
 }
 
 #button-list li:hover {
@@ -35,7 +42,7 @@ header {
 }
 
 #weather-container {
-    width: 98%;
+    width: 100%;
     border: 5px inset rgba(100, 148, 237, 0.632);
     background-color: rgba(120, 187, 228, 0.687);
 }
