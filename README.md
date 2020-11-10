@@ -8,7 +8,7 @@ https://dj620.github.io/rain-shine/
 
 ## Usage
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](assets/images/screenshot.png)
 
 When you first get to the page, you can type in any city, and that cities weather data will be displayed. A button will be created with the cities name underneath the search box. If you enter a new city, that cities weather data will replace the first city, and another new button will be added to the list at the top. If you click a button that has already been created, that cities weather day will be displayed. I have also added a delete button that will remove a city from this list, in case you decide you do not want it as part of your search history.
 

@@ -1,7 +1,7 @@
 body {
     font-family: 'ABeeZee', sans-serif;
     font-size: 20px;
-    background-image: url('sky-background.jpg');
+    background-image: url('images/sky-background.jpg');
 }
 
 header {
@@ -10,14 +10,14 @@ header {
 
 #rain {
     color: darkblue;
-    background: url('rain.webp') no-repeat;
+    background: url('images/rain.webp') no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 #shine {
     color: gold;
-    background: url('shine.jpg') no-repeat;
+    background: url('images/shine.jpg') no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
