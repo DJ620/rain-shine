@@ -92,7 +92,7 @@ function getWeather(city) {
             $("#forecast-cards").empty();
             for (var i = 1; i < 6; i++) {
                 var col = $("<div class='col-8 col-sm-4 col-xl-auto'>");
-                var card = $("<div class='card forecast'>");
+                var card = $("<div class='card forecast mb-2'>");
                 var body = $("<div class='card-body forecast'>");
                 var cardDate = $("<h4 class='card-title'>");
                 cardDate.text(convertDate(response.daily[i].dt));
