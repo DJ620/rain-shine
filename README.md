@@ -26,6 +26,10 @@ I utilized Bootstrap to help format and style the page.
 
 http://getbootstrap.com
 
+I took the fonts 'ABeeZee' and 'Pacifico' from Google Fonts.
+
+https://fonts.google.com
+
 I created the favicon using favicon.io
 
 https://favicon.io
