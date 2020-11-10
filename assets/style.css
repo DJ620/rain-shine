@@ -24,20 +24,15 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 450px) {
-    header h1{
-        font-size: 40px;
-    }
-}
-
 #search-container {
     background-color: rgba(120, 187, 228, 0.687);
     width: 100%;
     border: 5px inset rgba(100, 148, 237, 0.632);
+    box-shadow: 2px 2px 15px -5px black;
 }
 
 #button-list li:hover {
-    background-color: rgba(255, 237, 103, 0.66);
+    background-color: rgba(255, 255, 0, 0.68);
     cursor: pointer;
 }
 
@@ -45,6 +40,7 @@ header {
     width: 100%;
     border: 5px inset rgba(100, 148, 237, 0.632);
     background-color: rgba(120, 187, 228, 0.687);
+    box-shadow: 2px 2px 15px -5px black;
 }
 
 #uv {
