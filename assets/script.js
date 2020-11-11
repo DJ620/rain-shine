@@ -32,7 +32,7 @@ function renderButtons() {
         var deleteBtn = $("<button class='fa fa-backspace btn float-right' data-num='button" + i + "'>");
         newCityBtn.append(deleteBtn);
         $("#button-list").prepend(newCityBtn);
-        };
+    };
     
     // Puts the cityButtons array into local storage
     localStorage.setItem("cities", JSON.stringify(cityButtons));

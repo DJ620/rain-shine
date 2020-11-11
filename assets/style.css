@@ -2,6 +2,12 @@ body {
     font-family: 'ABeeZee', sans-serif;
     font-size: 20px;
     background-image: url('images/sky-background.jpg');
+    animation:clouds 110s linear infinite;
+}
+
+@keyframes clouds{
+    0%{background-position:0 0;}
+    100%{background-position:-2122px 0;}
 }
 
 header {
