@@ -148,6 +148,9 @@ $("#button-list").on("click", 'button.fa-backspace', function(event) {
     /* Because the element this event listener is attached to is inside of another element with a seperate 
        event listener, we need to add the stopPropagation method so that it doesn't trigger the other event */
     event.stopPropagation();
+
+    /* This will splice the city the user wants to delete out of the cityButtons array (and therefore 
+       local storage) and then call the renderButtons function to take it off the screen */ 
     var deletedCity = $("#" + $(this).data("num")).text();
     cityButtons.splice(cityButtons.indexOf(deletedCity), 1);
     renderButtons();
