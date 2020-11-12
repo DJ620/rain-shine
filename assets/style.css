@@ -10,8 +10,9 @@ body {
     100%{background-position:-2122px 0;}
 }
 
-header {
+.jumbotron {
     font-family: 'Pacifico', cursive;
+    background: none;
 }
 
 #rain {

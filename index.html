@@ -13,8 +13,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 </head>
 <body>
-    <header>
-        <h1 class="pt-2 pb-4 display-2 text-center font-weight-bolder"><span id="rain">Rain</span><span id='shine'>Shine</span></h1>
+    <header class="jumbotron mt-n3 mt-sm-n5 mb-n4 mb-sm-n5">
+        <div class="container">
+            <h1 class="display-2 text-center font-weight-bolder"><span id="rain">Rain</span><span id='shine'>Shine</span></h1>
+        </div>
     </header>
     <main>
         <div class="row">
@@ -22,15 +24,15 @@
 
                 <aside class="card ml-lg-1 mb-2" id="search-container">
                     <div class="card-body">
-                    <h3 class="card-title">Search for a city:</h3>
-                    <form method="GET">
-                        <input type="text" id="city-input">
-                        <button class="btn btn-primary fas fa-search mt-n1" type="submit"></button>
-                    </form>
-                    <section class="card mt-3">
-                        <ul class="list-group list-group-flush" id="button-list">
-                        </ul>
-                    </section>
+                        <h3 class="card-title">Search for a city:</h3>
+                        <form method="GET">
+                            <input type="text" id="city-input">
+                            <button class="btn btn-primary fas fa-search mt-n1" type="submit"></button>
+                        </form>
+                        <section class="card mt-3">
+                            <ul class="list-group list-group-flush" id="button-list">
+                            </ul>
+                        </section>
                     </div>
                 </aside>
 
