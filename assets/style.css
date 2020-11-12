@@ -19,6 +19,9 @@ body {
     .display-2 {
         font-size: 20vw;
     }
+    body {
+        object-fit: cover;
+    }
 }
 
 #rain {
