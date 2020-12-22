@@ -39,6 +39,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+#main {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #search-container {
     background-color: rgba(120, 187, 228, 0.687);
     width: 100%;
